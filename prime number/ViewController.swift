@@ -33,6 +33,18 @@ class ViewController: UIViewController {
         inputTextField.becomeFirstResponder()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+        
+        let alertController = UIAlertController(title: "Prime number",message: "A prime number (or a prime) is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers.",preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "oK", style: .destructive, handler: {
+            action in
+            print("点击了确定")
+        })
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -65,5 +77,7 @@ class ViewController: UIViewController {
     func checkPrime(withnumber number:Int,andCompletionhandler handler:(String) -> ()){
         handler(checkPrime(withNumber: number))
     }
+    
+
 }
 
